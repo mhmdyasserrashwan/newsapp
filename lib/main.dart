@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:newsapp/apisfolder/newsapis.dart';
-import 'model/sourceresponse.dart';
 import 'homescreen.dart';
 
 void main() async {
@@ -8,6 +6,7 @@ void main() async {
   // SourcesResponse sources = await api.getSources();
   // //print(sources.sources!.length);
   runApp(MaterialApp(
+    debugShowCheckedModeBanner: false,
     home: HomeScreen(),
   ));
 }
