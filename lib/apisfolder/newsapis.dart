@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:newsapp/model/articlenews.dart';
 import 'package:newsapp/model/sourceresponse.dart';
 import 'package:http/http.dart' as http;
 
@@ -15,10 +16,13 @@ class APIS {
     return SourcesResponse.fromJson(json);
   }
 
-  Future getArticles() async {
-    Uri url = Uri.https('', '', {});
+  static Future<NewsArticles> getArticles() async {
+    Uri url = Uri.https('newsapi.org', '/v2/everything',
+        {'apiKey': '07d44c267e97458b8510a9f847325dbc', 'q': 'bitcoin'});
     var response = await http.get(url);
     String responseBody = response.body;
     var json = jsonDecode(responseBody);
+    //print(json);
+    return NewsArticles.fromJson(json);
   }
 }
